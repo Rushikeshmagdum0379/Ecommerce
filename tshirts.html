@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        .imi {
+            border: 1px solid black;
+            border-radius: 0.4rem;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+        }
+        .logo {
+            width: 3.5rem;
+        }
+        .nv {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .title h2,
+        p {
+            color: black;
+        }
+        .remove-btn {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .cart-container {
+            border: 1px solid black;
+            border-radius: 0.4rem;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        .cart-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cart-title h3 {
+            margin-left: 0.5rem;
+        }
+        .cart-logo {
+            width: 2rem;
+        }
+        .checkout-btn {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!--HEADER-->
+    <div class="container-fluid nv bg-primary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary offset-lg-1">
+            <div class="container-fluid ">
+                <a class="navbar-brand" href="#">
+                    <img src="images/global-commerce.png" class="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Categories
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="tshirts.html">T-shirts</a></li>
+                                <li><a class="dropdown-item" href="shoes.html">Soon Products</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!--HEADER END-->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous">
+    </script>
+
+    <!--Sort by price and name both ascending and descending-->
+
+    <div class="container-fluid pt-5 mt-5">
+        <div class="row">
+            <div class="col-2 mt-5">
+                <div class="display-5">Filters</div>
+            </div>
+            <div class="col-8 title mt-5">
+                <h2 class="text-center">T-shirts</h2>
+                <p class="text-center"> Welcome to Nike T Shirts Bucket
+                </p>
+            </div>
+            <div class="col-lg-2 col-sm-12  mt-5 pt-5">
+            </div>
+        </div>
+    </div>
+
+    <!--Sort by price and name both ascending and descending end-->
+
+    <!--Products-->
+    <div class="container-fluid">
+        <div class="row">
+            <!--Filter-->
+            <div class="col-lg-2 col-sm-12 col-md-6">
+                <div>
+                    <div>Colors:</div>
+                    <input type="checkbox" class="color" value="black" />
+                    <span>Black</span>
+                    <input type="checkbox" class="color" value="white" />
+                    <span>White</span>
+                    <br>
+                    <input type="checkbox" class="color" value="Yellow" />
+                    <span>Yellow</span>
+                
+                    <input type="checkbox" class="color" value="Light Pink" />
+                    <span>Pink</span>
+                </div>
+                <div>
+                    <div>Sizes:</div>
+                    <select id="size" class="form-control">
+                        <option value="">Select Size</option>
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <div class="row"> <!--PRICE RANGE FROM TO -->
+                    <div class="col-6">
+                        <label for="">From</label>
+                        <input type="number" name="fromPrice" class="form-control">
+                    </div>
+
+                    <div class="col-6">
+                        <label for="">To</label>
+                        <input type="number" name="toPrice" class="form-control">
+                    </div>
+                </div>
+                <div class="mt-3"> <!--FILTER BUTTON-->
+                    <button id="filter" class="btn btn-primary">Filter</button>
+                    <button id="reset" class="btn btn-warning">Reset</button>
+                </div>
+            </div>
+
+            <!--Display products-->
+            <div class="col-8" id="products"></div>
+
+            <!--Cart-->
+            <div class="col-lg-2 col-sm-12 col-md-6">
+                <div class="cart-container">
+                    <div class="cart-title">
+                        <img src="images/cart-logo.png" class="cart-logo" alt="Cart Logo">
+                        <h3>Cart</h3>
+                    </div>
+                    <ul id="cartList"></ul>
+                    <p>Total Price: <span id="totalPrice">0</span> INR</p>
+                    <button class="checkout-btn">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const PRODUCTS = [
+            { name: 'A Nike T-shirt', description: 'Plain Yellow', price: 1500, size: 'M', color: 'Yellow', image: 't-shirts/t11.jpg', rating: 3.5 },
+            { name: 'B Nike T-shirt', description: 'Blue Orange ', price: 3000, size: 'XS', color: 'Plain', image: 't-shirts/t6.jpeg', rating: 4.9 },
+            { name: 'C Nike T-shirt', description: 'Blue Original shirt', price: 1500, size: 'M', color: 'Dark', image: 't-shirts/t7.jpeg', rating: 4.8 },
+            { name: 'D Nike T-shirt', description: 'White', price: 1000, size: 'L', color: 'white', image: 't-shirts/t2.jpg', rating: 2.8 },
+            { name: 'E Nike T-shirt', description: 'Dark Black', price: 1500, size: 'M', color: 'black', image: 't-shirts/t3.jpg', rating: 4.8 },
+            { name: 'F Nike T-shirt', description: 'Blue Orange', price: 3000, size: 'XS', color: 'Blue Orange', image: 't-shirts/t4.png', rating: 3.8 },
+            { name: 'G Nike T-shirt', description: 'Pink', price: 1500, size: 'S', color: 'Light Pink', image: 't-shirts/t9.jpg', rating: 3.8 },
+            { name: 'H Nike T-shirt', description: 'Purple', price: 1000, size: 'XL', color: 'Purple Plain', image: 't-shirts/t8.jpeg', rating: 5.0 },
+           // { name: 'I Nike T-shirt', description: 'Orange', price: 2500, size: 'M', color: 'Orange', image: 't-shirts/t1.jpg', rating: 3.8 },
+           // { name: 'J Nike T-shirt', description: 'Brown', price: 800, size: 'S', color: 'Plain brown', image: 't-shirts/t5.jpg', rating: 4.9 }
+        ];
+
+        function renderProducts(products) {
+            let html = '<div class="row">';
+            for (let i = 0; i < products.length; i++) {
+                html += `
+                <div class="col-md-3 col-sm-12 col-lg-3 col-xl-3">
+                    <div class="p-2 imi">
+                        <div class="text-center">
+                            <img src="${products[i].image}" width="200" height="200" class="p-2">
+                        </div>
+                        <div class="p-2">
+                            <p class="mb-0">Name: ${products[i].name}</p>
+                            <p class="mb-0">Price: ${products[i].price} INR</p>
+                            <p class="mb-0">Size: ${products[i].size}</p>
+                            <p class="mb-0">Color: ${products[i].color}</p>
+                            <p class="mb-0">Rating: ${products[i].rating}</p>
+                            <p class="mb-0">Description: ${products[i].description}</p>
+                            <button class="btn btn-primary mt-2" onclick="addToCart(${i})">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>`;
+            }
+            html += '</div>';
+            $('#products').html(html);
+        }
+
+        let cart = [];
+
+        function addToCart(index) {
+            const product = PRODUCTS[index];
+            cart.push(product);
+            updateCart();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function updateCart() {
+            $('#cartList').empty();
+            let totalPrice = 0;
+            cart.forEach((product, index) => {
+                $('#cartList').append(`
+                    <li>${product.name} - ${product.price} INR
+                        <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+                    </li>
+                `);
+                totalPrice += product.price;
+            });
+            $('#totalPrice').text(totalPrice);
+        }
+
+        $(document).ready(function () {
+            renderProducts(PRODUCTS);
+
+            $('#filter').click(function () {
+                let filteredProducts = PRODUCTS;
+
+                const selectedColors = $('.color:checked').map(function () {
+                    return $(this).val();
+                }).get();
+
+                const selectedSize = $('#size').val();
+                const fromPrice = $('input[name="fromPrice"]').val();
+                const toPrice = $('input[name="toPrice"]').val();
+
+                if (selectedColors.length > 0) {
+                    filteredProducts = filteredProducts.filter(product => selectedColors.includes(product.color));
+                }
+
+                if (selectedSize) {
+                    filteredProducts = filteredProducts.filter(product => product.size === selectedSize);
+                }
+
+                if (fromPrice) {
+                    filteredProducts = filteredProducts.filter(product => product.price >= fromPrice);
+                }
+
+                if (toPrice) {
+                    filteredProducts = filteredProducts.filter(product => product.price <= toPrice);
+                }
+
+                renderProducts(filteredProducts);
+            });
+
+            $('#reset').click(function () {
+                renderProducts(PRODUCTS);
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz4fnFO9gybBogGzS5m5U6pI6VRcJyIw8rabphJHYc+vF0CVVGI6m2nr2T"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuomRxyqd7QkT9Ppd0SnAq2Q0o7KwjgnpP5Qiwf5r6LrRczjS7Vzt4NCjiJdAz1a"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
